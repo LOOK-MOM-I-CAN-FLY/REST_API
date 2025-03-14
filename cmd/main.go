@@ -17,7 +17,7 @@ const (
 var (
 	port                    string
 	bookResourcePrefix      string = apiPrefix + "/book"  //api/v1/book/
-	manyBooksResourcePrefix string = apiPrefix + "/books" //api/v1/books/
+	manyBooksResourcePrefix string = apiPrefix + "/books" //api/v1/book/
 )
 
 func init() {
@@ -35,6 +35,6 @@ func main() {
 	log.Println("Роутер инициализирован")
 
 	build.BuildBookResource(router, bookResourcePrefix)
-	build.BuildManyBooksResourcePrefix(router, bookResourcePrefix)
+	build.BuildManyBooksResourcePrefix(router, manyBooksResourcePrefix)
 	log.Fatal(http.ListenAndServe(":"+port, router))
 }
